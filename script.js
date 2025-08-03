@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const feedbackDiv = document.getElementById('form-feedback');
 
   // Listen for form submission
-  form.addEventListener('submit', (event) => {
+  form.addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent default form submission
 
     // Retrieve and trim input values
@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const password = document.getElementById('password').value.trim();
 
     // Initialize validation status and messages array
-    let isValid = true;
-    const messages = [];
+    var isValid = true;
+    var messages = [];
 
     // Validate username
     if (username.length < 3) {
@@ -39,12 +39,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (isValid) {
       feedbackDiv.textContent = "Registration successful!";
-      feedbackDiv.style.color = "#28a745"; // green
-      feedbackDiv.style.backgroundColor = "#d4edda"; // light green
+      feedbackDiv.style.color = "#28a745"; // correct green
     } else {
       feedbackDiv.innerHTML = messages.join('<br>');
-      feedbackDiv.style.color = "#d8000c"; // red
-      feedbackDiv.style.backgroundColor = "#ffbaba"; // light red
+      feedbackDiv.style.color = "#dc3545"; // required error red
     }
   });
 });
